@@ -25,12 +25,12 @@ jobs:
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-maven-
 
-    - name: Patch Tuinity
+    - name: Patch
       run: |
         git config --global user.email "you@example.com"
         git config --global user.name "Your Name"
         git submodule update --init --recursive
-        ./pug jar
+        ./pug build
         
     - uses: actions/upload-artifact@v2
       with:
