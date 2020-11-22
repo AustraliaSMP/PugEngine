@@ -67,7 +67,7 @@ case "$1" in
         (cd Paper-API ; mvn clean install) || exit 1
         (cd Paper-MojangAPI ; mvn clean install) || exit 1
         (cd Paper-Server ; mvn clean package) || exit 1
-        echo "Paper jar successfully built"
+        echo "PugEngine jar successfully built"
         ls -la Paper-Server/target/paper*.jar
     ) || failed=1
     ;;
@@ -80,11 +80,11 @@ case "$1" in
         echo "Paper jar successfully built and installed to local repo"
     ) || failed=1
     ;;
-    "pc" | "paperclip")
+    "pc" | "pugclip")
     (
         set -e
         cd "$basedir"
-        scripts/paperclip.sh "$basedir" || exit 1
+        scripts/pugengineclip.sh "$basedir" || exit 1
     ) || failed=1
     ;;
     "make")
@@ -207,7 +207,7 @@ case "$1" in
         fi
     ;;
     *)
-        echo "PaperMC build tool command. This provides a variety of commands to build and manage the PaperMC build"
+        echo "PugEngine build tool command. This provides a variety of commands to build and manage the PugEngine build"
         echo "environment. For all of the functionality of this command to be available, you must first run the"
         echo "'setup' command. View below for details. For essential building and patching, you do not need to do the setup."
         echo ""
