@@ -1,0 +1,31 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: ppug <ppug@users.noreply.github.com>
+Date: Wed, 25 Nov 2020 02:42:05 +1100
+Subject: [PATCH] another useless patch
+
+
+diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
+index 2b24c3abf1c36764ff613ca444304d0a3501d37e..10a6fe71b685d0e2b24944d4647a75fc365fb6dc 100644
+--- a/src/main/java/net/minecraft/server/MinecraftServer.java
++++ b/src/main/java/net/minecraft/server/MinecraftServer.java
+@@ -767,7 +767,7 @@ public abstract class MinecraftServer extends IAsyncTaskHandlerReentrant<TickTas
+         }
+         // Paper end
+         // CraftBukkit end
+-        MinecraftServer.LOGGER.info("Stopping server");
++        MinecraftServer.LOGGER.info("Stopping PugEngine...");
+         MinecraftTimings.stopServer(); // Paper
+         // CraftBukkit start
+         if (this.server != null) {
+diff --git a/src/main/java/org/bukkit/craftbukkit/Main.java b/src/main/java/org/bukkit/craftbukkit/Main.java
+index 8d83b674baf7c0d86f4e6fd1cd25c16e54643464..883249c3d3fbc5b85ee284aaaa4bcf09a12c4b9c 100644
+--- a/src/main/java/org/bukkit/craftbukkit/Main.java
++++ b/src/main/java/org/bukkit/craftbukkit/Main.java
+@@ -273,6 +273,7 @@ public class Main {
+                 // Paper end
+                 System.setProperty( "library.jansi.version", "Paper" ); // Paper - set meaningless jansi version to prevent git builds from crashing on Windows
+                 System.out.println("Loading libraries, please wait...");
++                System.out.println("a fat pug engine started lol.....");
+                 net.minecraft.server.Main.main(options);
+             } catch (Throwable t) {
+                 t.printStackTrace();
