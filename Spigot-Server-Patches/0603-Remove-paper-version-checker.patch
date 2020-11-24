@@ -1,0 +1,40 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: JustPugDev <saltyboiizer@gmail.com>
+Date: Wed, 25 Nov 2020 02:05:34 +1100
+Subject: [PATCH] Remove paper version checker
+
+
+diff --git a/src/main/java/com/destroystokyo/paper/PaperConfig.java b/src/main/java/com/destroystokyo/paper/PaperConfig.java
+index 6ab0a51b421dc696aec292f2db955311c9cc31e3..d7553cb448f21e3ecce1dec464f2074a6a18f03d 100644
+--- a/src/main/java/com/destroystokyo/paper/PaperConfig.java
++++ b/src/main/java/com/destroystokyo/paper/PaperConfig.java
+@@ -34,16 +34,6 @@ public class PaperConfig {
+ 
+     private static File CONFIG_FILE;
+     private static final String HEADER = "This is the main configuration file for Paper.\n"
+-            + "As you can see, there's tons to configure. Some options may impact gameplay, so use\n"
+-            + "with caution, and make sure you know what each option does before configuring.\n"
+-            + "\n"
+-            + "If you need help with the configuration or have any questions related to Paper,\n"
+-            + "join us in our Discord or IRC channel.\n"
+-            + "\n"
+-            + "Discord: https://discord.gg/papermc\n"
+-            + "IRC: #paper @ irc.esper.net ( https://webchat.esper.net/?channels=paper ) \n"
+-            + "Website: https://papermc.io/ \n"
+-            + "Docs: https://paper.readthedocs.org/ \n";
+     /*========================================================================*/
+     public static YamlConfiguration config;
+     static int version;
+diff --git a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
+index 49a38c6608b652ff48ef4eaca0dd3ccb1ba570e3..31e670295a1a33a90ea3f7c68a1709ef54e27eda 100644
+--- a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
++++ b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
+@@ -63,7 +63,7 @@ public class PaperVersionFetcher implements VersionFetcher {
+             case 0:
+                 return "You are running the latest version";
+             case -2:
+-                return "Unknown version";
++                return ""; //PugEngine Remove paper version checker
+             default:
+                 return "You are " + distance + " version(s) behind";
+         }
