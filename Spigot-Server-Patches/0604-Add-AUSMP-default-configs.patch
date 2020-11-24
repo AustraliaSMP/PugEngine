@@ -1,0 +1,71 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: JustPugDev <saltyboiizer@gmail.com>
+Date: Wed, 25 Nov 2020 02:19:29 +1100
+Subject: [PATCH] Add AUSMP default configs
+
+
+diff --git a/src/main/java/com/destroystokyo/paper/PaperConfig.java b/src/main/java/com/destroystokyo/paper/PaperConfig.java
+index d7553cb448f21e3ecce1dec464f2074a6a18f03d..36ac108e7a8d28194d8df18faea9ef5661774d2c 100644
+--- a/src/main/java/com/destroystokyo/paper/PaperConfig.java
++++ b/src/main/java/com/destroystokyo/paper/PaperConfig.java
+@@ -34,6 +34,7 @@ public class PaperConfig {
+ 
+     private static File CONFIG_FILE;
+     private static final String HEADER = "This is the main configuration file for Paper.\n"
++        + "https://paper.readthedocs.io/en/latest/server/configuration.html\n"
+     /*========================================================================*/
+     public static YamlConfiguration config;
+     static int version;
+diff --git a/src/main/java/org/spigotmc/SpigotConfig.java b/src/main/java/org/spigotmc/SpigotConfig.java
+index 25a0873553a0ec6b2913e0cfb928f98e6f3f0bb7..36da5e4c286b836a2b43a2fca78e4dda099a3a79 100644
+--- a/src/main/java/org/spigotmc/SpigotConfig.java
++++ b/src/main/java/org/spigotmc/SpigotConfig.java
+@@ -33,16 +33,7 @@ public class SpigotConfig
+ 
+     private static File CONFIG_FILE;
+     private static final String HEADER = "This is the main configuration file for Spigot.\n"
+-            + "As you can see, there's tons to configure. Some options may impact gameplay, so use\n"
+-            + "with caution, and make sure you know what each option does before configuring.\n"
+-            + "For a reference for any variable inside this file, check out the Spigot wiki at\n"
+             + "http://www.spigotmc.org/wiki/spigot-configuration/\n"
+-            + "\n"
+-            + "If you need help with the configuration or have any questions related to Spigot,\n"
+-            + "join us at the IRC or drop by our forums and leave a post.\n"
+-            + "\n"
+-            + "IRC: #spigot @ irc.spi.gt ( http://www.spigotmc.org/pages/irc/ )\n"
+-            + "Forums: http://www.spigotmc.org/\n";
+     /*========================================================================*/
+     public static YamlConfiguration config;
+     static int version;
+@@ -197,8 +188,8 @@ public class SpigotConfig
+     public static String whitelistMessage;
+     public static String unknownCommandMessage;
+     public static String serverFullMessage;
+-    public static String outdatedClientMessage = "Outdated client! Please use {0}";
+-    public static String outdatedServerMessage = "Outdated server! I\'m still on {0}";
++    public static String outdatedClientMessage = "§cPlease use 1.16.4 to join";
++    public static String outdatedServerMessage = "§cPlease use 1.16.4 to join";
+     private static String transform(String s)
+     {
+         return ChatColor.translateAlternateColorCodes( '&', s ).replaceAll( "\\\\n", "\n" );
+@@ -211,8 +202,8 @@ public class SpigotConfig
+             set( "messages.outdated-server", outdatedServerMessage );
+         }
+ 
+-        whitelistMessage = transform( getString( "messages.whitelist", "You are not whitelisted on this server!" ) );
+-        unknownCommandMessage = transform( getString( "messages.unknown-command", "Unknown command. Type \"/help\" for help." ) );
++        whitelistMessage = transform( getString( "messages.whitelist", "You are not whitelisted, please apply on our website: https://australiasmp.xyz/apply" ) );
++        unknownCommandMessage = transform( getString( "messages.unknown-command", "Unknown Command. Please use /Help!" ) );
+         serverFullMessage = transform( getString( "messages.server-full", "The server is full!" ) );
+         outdatedClientMessage = transform( getString( "messages.outdated-client", outdatedClientMessage ) );
+         outdatedServerMessage = transform( getString( "messages.outdated-server", outdatedServerMessage ) );
+@@ -227,7 +218,8 @@ public class SpigotConfig
+         timeoutTime = getInt( "settings.timeout-time", timeoutTime );
+         restartOnCrash = getBoolean( "settings.restart-on-crash", restartOnCrash );
+         restartScript = getString( "settings.restart-script", restartScript );
+-        restartMessage = transform( getString( "messages.restart", "Server is restarting" ) );
++        restartMessage = transform( getString( "messages.restart", "§0  \\n§0  \\n§0 §c§lSERVER RESTART\\n§0\\n§fThe server is currently restarting.\\n\\\n" +
++            "    §fPlease be patient for a moment!\" ) );
+         commands.put( "restart", new RestartCommand( "restart" ) );
+         //WatchdogThread.doStart( timeoutTime, restartOnCrash ); // Paper - moved to PaperConfig
+     }
