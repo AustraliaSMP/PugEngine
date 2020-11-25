@@ -1,0 +1,41 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: ppug <ppug@users.noreply.github.com>
+Date: Wed, 25 Nov 2020 15:23:23 +1100
+Subject: [PATCH] fix
+
+
+diff --git a/src/main/java/com/destroystokyo/paper/PaperConfig.java b/src/main/java/com/destroystokyo/paper/PaperConfig.java
+index 36ac108e7a8d28194d8df18faea9ef5661774d2c..d296778465ba23dee6f584b56c56585974128af3 100644
+--- a/src/main/java/com/destroystokyo/paper/PaperConfig.java
++++ b/src/main/java/com/destroystokyo/paper/PaperConfig.java
+@@ -34,7 +34,7 @@ public class PaperConfig {
+ 
+     private static File CONFIG_FILE;
+     private static final String HEADER = "This is the main configuration file for Paper.\n"
+-        + "https://paper.readthedocs.io/en/latest/server/configuration.html\n"
++        + "https://paper.readthedocs.io/en/latest/server/configuration.html\n";
+     /*========================================================================*/
+     public static YamlConfiguration config;
+     static int version;
+diff --git a/src/main/java/org/spigotmc/SpigotConfig.java b/src/main/java/org/spigotmc/SpigotConfig.java
+index 36da5e4c286b836a2b43a2fca78e4dda099a3a79..36b8bd31db2f1c7f93b7c1b99872cd740778e006 100644
+--- a/src/main/java/org/spigotmc/SpigotConfig.java
++++ b/src/main/java/org/spigotmc/SpigotConfig.java
+@@ -33,7 +33,7 @@ public class SpigotConfig
+ 
+     private static File CONFIG_FILE;
+     private static final String HEADER = "This is the main configuration file for Spigot.\n"
+-            + "http://www.spigotmc.org/wiki/spigot-configuration/\n"
++            + "http://www.spigotmc.org/wiki/spigot-configuration/\n";
+     /*========================================================================*/
+     public static YamlConfiguration config;
+     static int version;
+@@ -219,7 +219,7 @@ public class SpigotConfig
+         restartOnCrash = getBoolean( "settings.restart-on-crash", restartOnCrash );
+         restartScript = getString( "settings.restart-script", restartScript );
+         restartMessage = transform( getString( "messages.restart", "§0  \\n§0  \\n§0 §c§lSERVER RESTART\\n§0\\n§fThe server is currently restarting.\\n\\\n" +
+-            "    §fPlease be patient for a moment!\" ) );
++            "    §fPlease be patient for a moment!" )) ;
+         commands.put( "restart", new RestartCommand( "restart" ) );
+         //WatchdogThread.doStart( timeoutTime, restartOnCrash ); // Paper - moved to PaperConfig
+     }
