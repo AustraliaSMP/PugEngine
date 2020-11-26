@@ -32,8 +32,8 @@ jobs:
 
     - name: Patch PugEngine
       run: |
-        git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
+        git config --global user.email "cunt@github.com"
+        git config --global user.name "cunt"
         git submodule update --init --recursive
         ./pug jar
         
