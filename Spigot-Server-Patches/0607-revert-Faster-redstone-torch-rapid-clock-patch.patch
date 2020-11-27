@@ -1,0 +1,70 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: ppug <ppug@users.noreply.github.com>
+Date: Fri, 27 Nov 2020 21:54:59 +1100
+Subject: [PATCH] revert Faster redstone torch rapid clock patch
+
+
+diff --git a/src/main/java/net/minecraft/server/BlockRedstoneTorch.java b/src/main/java/net/minecraft/server/BlockRedstoneTorch.java
+index a63a60348fe45f63deec6fcb27b6be09cd2f088c..e88fef8cc2dc622282b95604549e28589ee1b686 100644
+--- a/src/main/java/net/minecraft/server/BlockRedstoneTorch.java
++++ b/src/main/java/net/minecraft/server/BlockRedstoneTorch.java
+@@ -6,7 +6,7 @@ import java.util.Map;
+ import java.util.Random;
+ import java.util.WeakHashMap;
+ 
+-import org.bukkit.event.block.BlockRedstoneEvent; // CraftBukkit
++import org.bukkit.event.block.BlockRedstoneEvent; // CraftBukkitjava.util.ArrayDeque<BlockRedstoneTorch.RedstoneUpdateInfo> redstoneUpdateInfos = worldserver.redstoneUpdateInfos;
+ 
+ public class BlockRedstoneTorch extends BlockTorch {
+ 
+@@ -58,15 +58,11 @@ public class BlockRedstoneTorch extends BlockTorch {
+     @Override
+     public void tickAlways(IBlockData iblockdata, WorldServer worldserver, BlockPosition blockposition, Random random) {
+         boolean flag = this.a((World) worldserver, blockposition, iblockdata);
+-        // Paper start
+-        java.util.ArrayDeque<BlockRedstoneTorch.RedstoneUpdateInfo> redstoneUpdateInfos = worldserver.redstoneUpdateInfos;
+-        if (redstoneUpdateInfos != null) {
+-            BlockRedstoneTorch.RedstoneUpdateInfo curr;
+-            while ((curr = redstoneUpdateInfos.peek()) != null && worldserver.getTime() - curr.getTime() > 60L) {
+-                redstoneUpdateInfos.poll();
+-            }
+-        }
+-        // Paper end
++        // PugEngine start - revert Faster redstone torch rapid clock patch
++                List list = (List) BlockRedstoneTorch.b.get(worldserver);
++                    while (list != null && !list.isEmpty() && worldserver.getTime() - ((BlockRedstoneTorch.RedstoneUpdateInfo) list.get(0)).b > 60L) {
++                        list.remove(0);
++        // PugEngine end - revert Faster redstone torch rapid clock patch
+ 
+         // CraftBukkit start
+         org.bukkit.plugin.PluginManager manager = worldserver.getServer().getPluginManager();
+@@ -131,11 +127,10 @@ public class BlockRedstoneTorch extends BlockTorch {
+     }
+ 
+     private static boolean a(World world, BlockPosition blockposition, boolean flag) {
+-        // Paper start
+-        java.util.ArrayDeque<BlockRedstoneTorch.RedstoneUpdateInfo> list = world.redstoneUpdateInfos;
+-        if (list == null) {
+-            list = world.redstoneUpdateInfos = new java.util.ArrayDeque<>();
+-        }
++        // PugEngine start - revert Faster redstone torch rapid clock patch
++                    List<BlockRedstoneTorch.RedstoneUpdateInfo> list = (List) BlockRedstoneTorch.b.computeIfAbsent(world, (iblockaccess) -> {
++                            return Lists.newArrayList();
++                        });
+ 
+ 
+         if (flag) {
+@@ -143,10 +138,10 @@ public class BlockRedstoneTorch extends BlockTorch {
+         }
+ 
+         int i = 0;
++                    for (int j = 0; j < list.size(); ++j) {
++                            BlockRedstoneTorch.RedstoneUpdateInfo blockredstonetorch_redstoneupdateinfo = (BlockRedstoneTorch.RedstoneUpdateInfo) list.get(j);
+ 
+-        for (java.util.Iterator<BlockRedstoneTorch.RedstoneUpdateInfo> iterator = list.iterator(); iterator.hasNext();) {
+-            BlockRedstoneTorch.RedstoneUpdateInfo blockredstonetorch_redstoneupdateinfo = iterator.next();
+-            // Paper end
++            // PugEngine end - revert Faster redstone torch rapid clock patch
+             if (blockredstonetorch_redstoneupdateinfo.a.equals(blockposition)) {
+                 ++i;
+                 if (i >= 8) {
