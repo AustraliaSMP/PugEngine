@@ -5,10 +5,10 @@ Subject: [PATCH] Fix MC-117075: TE Unload Lag Spike
 
 
 diff --git a/src/main/java/net/minecraft/server/World.java b/src/main/java/net/minecraft/server/World.java
-index c8e767a32483584d57a5c42e87fba2c63d7f9e6b..4d1a720bf7043a60546e165921def29b4465e72a 100644
+index 43677ad5882a5dcc5ab21c380daa2bf0ac2de366..1a4ab140ce329e6cf7f7ab8ab51b46c3907e5a3e 100644
 --- a/src/main/java/net/minecraft/server/World.java
 +++ b/src/main/java/net/minecraft/server/World.java
-@@ -673,7 +673,11 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -672,7 +672,11 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
          gameprofilerfiller.enter("blockEntities");
          timings.tileEntityTick.startTiming(); // Spigot
          if (!this.tileEntityListUnload.isEmpty()) {

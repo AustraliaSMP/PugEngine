@@ -304,10 +304,10 @@ index 1fe1df445ba56b2f176ee25502a774aa0a7bd00b..916a6a1fc1ccc73e4fb974ad77310d16
          a(SystemUtils.e);
          a(SystemUtils.f);
 diff --git a/src/main/java/net/minecraft/server/World.java b/src/main/java/net/minecraft/server/World.java
-index c0cf73c57958f5b20cfe8e1f200464274b393447..5ff95f971c01fc010441dcc9099492cb627b3f0c 100644
+index 1aaf65ac13d580e96884ee6505595c516a77a056..8fc897c6fa207f569aa2fcf4e07091226ab9db12 100644
 --- a/src/main/java/net/minecraft/server/World.java
 +++ b/src/main/java/net/minecraft/server/World.java
-@@ -797,6 +797,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -796,6 +796,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
  
                          gameprofilerfiller.exit();
                      } catch (Throwable throwable) {
@@ -315,7 +315,7 @@ index c0cf73c57958f5b20cfe8e1f200464274b393447..5ff95f971c01fc010441dcc9099492cb
                          // Paper start - Prevent tile entity and entity crashes
                          String msg = "TileEntity threw exception at " + tileentity.world.getWorld().getName() + ":" + tileentity.position.getX() + "," + tileentity.position.getY() + "," + tileentity.position.getZ();
                          System.err.println(msg);
-@@ -872,6 +873,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -871,6 +872,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
          try {
              consumer.accept(entity);
          } catch (Throwable throwable) {

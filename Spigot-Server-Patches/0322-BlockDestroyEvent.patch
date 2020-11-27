@@ -11,10 +11,10 @@ floating in the air.
 This can replace many uses of BlockPhysicsEvent
 
 diff --git a/src/main/java/net/minecraft/server/World.java b/src/main/java/net/minecraft/server/World.java
-index caeca1b5b6aafa5770924c3f9e0cc264f23156ef..4d69dd189091681fee7634f9ffa00c4afb63011f 100644
+index 8af522a6201fc256aa15011eebb84bc643d944c8..8aab5443ab2f3b211fbfe3427b6f87a2eda34f52 100644
 --- a/src/main/java/net/minecraft/server/World.java
 +++ b/src/main/java/net/minecraft/server/World.java
-@@ -499,8 +499,20 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -498,8 +498,20 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
              return false;
          } else {
              Fluid fluid = this.getFluid(blockposition);

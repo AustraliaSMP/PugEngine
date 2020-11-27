@@ -607,10 +607,10 @@ index 0f46aac9d021dc115718b1e36b8fbe28cbc820c6..b8ab8150b7dfe9e34910d35f565083e8
  
          while (iterator.hasNext()) {
 diff --git a/src/main/java/net/minecraft/server/World.java b/src/main/java/net/minecraft/server/World.java
-index 5ff95f971c01fc010441dcc9099492cb627b3f0c..265dafc2e2afc98d2490fa8707a5b72a5543bc9e 100644
+index 8fc897c6fa207f569aa2fcf4e07091226ab9db12..3c675efe54dbb283d286abbe4f9e795a5818ba8c 100644
 --- a/src/main/java/net/minecraft/server/World.java
 +++ b/src/main/java/net/minecraft/server/World.java
-@@ -464,8 +464,13 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -463,8 +463,13 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
                  this.b(blockposition, iblockdata1, iblockdata2);
              }
  

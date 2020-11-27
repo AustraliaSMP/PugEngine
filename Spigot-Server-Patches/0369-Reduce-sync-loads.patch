@@ -298,10 +298,10 @@ index 2c47eaf07a46b068c446fc7c71da4b9dfcf39656..7278e39d7fb47737b783c482f4c74a82
              this.serverThreadQueue.awaitTasks(completablefuture::isDone);
                  com.destroystokyo.paper.io.chunk.ChunkTaskManager.popChunkWait(); // Paper - async chunk debug
 diff --git a/src/main/java/net/minecraft/server/World.java b/src/main/java/net/minecraft/server/World.java
-index 7a392774de7affb344166cc3344b2ebf5468e299..358ea68714fe1352259b158d61a7d1954a2d621b 100644
+index 295670939dc84d7a315935883229c01260c3cc23..139d7857951934ee52fd87a0f600b683915acb1c 100644
 --- a/src/main/java/net/minecraft/server/World.java
 +++ b/src/main/java/net/minecraft/server/World.java
-@@ -1070,7 +1070,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -1069,7 +1069,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
  
          for (int i1 = i; i1 <= j; ++i1) {
              for (int j1 = k; j1 <= l; ++j1) {
@@ -310,7 +310,7 @@ index 7a392774de7affb344166cc3344b2ebf5468e299..358ea68714fe1352259b158d61a7d195
  
                  if (chunk != null) {
                      chunk.a(entity, axisalignedbb, list, predicate);
-@@ -1091,7 +1091,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -1090,7 +1090,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
  
          for (int i1 = i; i1 < j; ++i1) {
              for (int j1 = k; j1 < l; ++j1) {
@@ -319,7 +319,7 @@ index 7a392774de7affb344166cc3344b2ebf5468e299..358ea68714fe1352259b158d61a7d195
  
                  if (chunk != null) {
                      chunk.a(entitytypes, axisalignedbb, list, predicate);
-@@ -1114,7 +1114,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -1113,7 +1113,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
  
          for (int i1 = i; i1 < j; ++i1) {
              for (int j1 = k; j1 < l; ++j1) {

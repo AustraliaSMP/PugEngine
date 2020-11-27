@@ -96,10 +96,10 @@ index ed0f9c5d29c4f88b7beee4b0ecdd7a56de2d7a9e..881cea7c466f29ff4a89db28d104e850
          if (operatorboolean.apply(false, false)) {
              throw (IllegalArgumentException) SystemUtils.c((Throwable) (new IllegalArgumentException()));
 diff --git a/src/main/java/net/minecraft/server/World.java b/src/main/java/net/minecraft/server/World.java
-index 23a38825b71ea981538f32368705e7a7b98dadaf..514be9c4356380627032c54b4b1eda37aaefe16d 100644
+index 744eec8435fe2bc43f5a1366dc3636ee669c9e34..3ee4a31c8ccc99086e12f5f2c01f3f6576c5ccc1 100644
 --- a/src/main/java/net/minecraft/server/World.java
 +++ b/src/main/java/net/minecraft/server/World.java
-@@ -178,6 +178,46 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -177,6 +177,46 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
          this.tileLimiter = new org.spigotmc.TickLimiter(spigotConfig.tileMaxTickTime);
      }
  

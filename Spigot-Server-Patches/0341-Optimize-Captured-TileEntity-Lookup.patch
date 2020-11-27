@@ -10,10 +10,10 @@ Optimize to check if the captured list even has values in it, and also to
 just do a get call since the value can never be null.
 
 diff --git a/src/main/java/net/minecraft/server/World.java b/src/main/java/net/minecraft/server/World.java
-index 4d69dd189091681fee7634f9ffa00c4afb63011f..5f2cff57c2cd173932b57b9d84f591050e5b8e14 100644
+index 8aab5443ab2f3b211fbfe3427b6f87a2eda34f52..bf9210bcd01b456852730744043e654b9ad69664 100644
 --- a/src/main/java/net/minecraft/server/World.java
 +++ b/src/main/java/net/minecraft/server/World.java
-@@ -908,12 +908,13 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -907,12 +907,13 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
              return null;
          } else {
              // CraftBukkit start

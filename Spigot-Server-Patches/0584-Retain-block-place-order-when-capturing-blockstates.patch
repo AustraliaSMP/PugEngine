@@ -10,7 +10,7 @@ In general, look at making this logic more robust (i.e properly handling
 cases where a captured entry is overriden) - but for now this will do.
 
 diff --git a/src/main/java/net/minecraft/server/World.java b/src/main/java/net/minecraft/server/World.java
-index cbfbdd4c7d91afb779aaf6aa79f9c681078b9b27..822b587cc92bb25ec8618fd9d86ce2c9233a69b6 100644
+index 5119badba27d832933fa65d3076caf862ab2c3b8..b75e4890a29b1f5da91bbe61e376acfaa1568a58 100644
 --- a/src/main/java/net/minecraft/server/World.java
 +++ b/src/main/java/net/minecraft/server/World.java
 @@ -75,7 +75,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {

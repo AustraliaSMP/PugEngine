@@ -1373,7 +1373,7 @@ index 420bf7116def909d3dd7dc9a799723446ddf8f7f..300cbb8b01d94e7eb0cded0c8e118103
      }
  
 diff --git a/src/main/java/net/minecraft/server/World.java b/src/main/java/net/minecraft/server/World.java
-index f2d2258feadab1a1cb5fffdabc8d90949b980342..8c725507caaa7729e1b6b56b14a111765e9427f7 100644
+index 6e6804ac4cf121dacd02d337d56f327e4c804ea7..d94603a85d79b40888debd9402019eb1cb01d031 100644
 --- a/src/main/java/net/minecraft/server/World.java
 +++ b/src/main/java/net/minecraft/server/World.java
 @@ -2,6 +2,8 @@ package net.minecraft.server;
@@ -1393,7 +1393,7 @@ index f2d2258feadab1a1cb5fffdabc8d90949b980342..8c725507caaa7729e1b6b56b14a11176
  
      public final co.aikar.timings.WorldTimingsHandler timings; // Paper
      public static BlockPosition lastPhysicsProblem; // Spigot
-@@ -105,9 +108,10 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -104,9 +107,10 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
          return typeKey;
      }
  
@@ -1405,7 +1405,7 @@ index f2d2258feadab1a1cb5fffdabc8d90949b980342..8c725507caaa7729e1b6b56b14a11176
          this.generator = gen;
          this.world = new CraftWorld((WorldServer) this, gen, env);
          this.ticksPerAnimalSpawns = this.getServer().getTicksPerAnimalSpawns(); // CraftBukkit
-@@ -372,6 +376,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -371,6 +375,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
              // CraftBukkit end
  
              IBlockData iblockdata1 = chunk.setType(blockposition, iblockdata, (i & 64) != 0, (i & 1024) == 0); // CraftBukkit custom NO_PLACE flag

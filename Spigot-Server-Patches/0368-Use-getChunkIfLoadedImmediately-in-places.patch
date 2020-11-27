@@ -21,10 +21,10 @@ index 5e74436908c35bfbdba95a39119f115a9512786d..38cd2768374b44b82060b07924b17f35
                                  return;
                              }
 diff --git a/src/main/java/net/minecraft/server/World.java b/src/main/java/net/minecraft/server/World.java
-index e7ad9a926f58cc7e5d70229dd69f2f5b34603a39..7a392774de7affb344166cc3344b2ebf5468e299 100644
+index d94603a85d79b40888debd9402019eb1cb01d031..295670939dc84d7a315935883229c01260c3cc23 100644
 --- a/src/main/java/net/minecraft/server/World.java
 +++ b/src/main/java/net/minecraft/server/World.java
-@@ -104,6 +104,13 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -103,6 +103,13 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
          return (CraftServer) Bukkit.getServer();
      }
  
@@ -38,7 +38,7 @@ index e7ad9a926f58cc7e5d70229dd69f2f5b34603a39..7a392774de7affb344166cc3344b2ebf
      public ResourceKey<DimensionManager> getTypeKey() {
          return typeKey;
      }
-@@ -1002,14 +1009,14 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -1001,14 +1008,14 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
      }
  
      public boolean p(BlockPosition blockposition) {
@@ -55,7 +55,7 @@ index e7ad9a926f58cc7e5d70229dd69f2f5b34603a39..7a392774de7affb344166cc3344b2ebf
  
              return ichunkaccess == null ? false : ichunkaccess.getType(blockposition).a((IBlockAccess) this, blockposition, entity, enumdirection);
          }
-@@ -1130,7 +1137,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
+@@ -1129,7 +1136,7 @@ public abstract class World implements GeneratorAccess, AutoCloseable {
  
          for (int i1 = i; i1 < j; ++i1) {
              for (int j1 = k; j1 < l; ++j1) {
