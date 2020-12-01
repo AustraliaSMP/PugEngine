@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        java: [15, 14, 11, 8]
+        java: [8]
 
     steps:
     - uses: actions/checkout@v2
@@ -36,8 +36,3 @@ jobs:
         git config --global user.name "cunt"
         git submodule update --init --recursive
         ./pug jar
-        
-    - uses: actions/upload-artifact@v2
-      with:
-        name: PugEngine-${{ env.PR }}-JDK${{ matrix.java }}
-        path: pugengine.jar
